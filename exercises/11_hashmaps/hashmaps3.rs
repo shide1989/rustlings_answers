@@ -5,9 +5,9 @@
 // Example: England,France,4,2 (England scored 4 goals, France 2).
 //
 // You have to build a scores table containing the name of the team, the total
-// number of goals the team scored, and the total number of goals the team 
-// conceded. One approach to build the scores table is to use a Hashmap. 
-// The solution is partially written to use a Hashmap, 
+// number of goals the team scored, and the total number of goals the team
+// conceded. One approach to build the scores table is to use a Hashmap.
+// The solution is partially written to use a Hashmap,
 // complete it to pass the test.
 //
 // Make me pass the tests!
@@ -15,14 +15,22 @@
 // Execute `rustlings hint hashmaps3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
-
 use std::collections::HashMap;
 
 // A structure to store the goal details of a team.
+#[derive(Debug)]
 struct Team {
     goals_scored: u8,
     goals_conceded: u8,
+}
+
+impl From<(u8, u8)> for Team {
+    fn from((s, c): (u8, u8)) -> Self {
+        Team {
+            goals_scored: s,
+            goals_conceded: c,
+        }
+    }
 }
 
 fn build_scores_table(results: String) -> HashMap<String, Team> {
@@ -40,6 +48,26 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
         // will be the number of goals conceded by team_2, and similarly
         // goals scored by team_2 will be the number of goals conceded by
         // team_1.
+
+        if let Some(val) = scores.get_mut(&team_1_name) {
+            *val = (
+                val.goals_scored + team_1_score,
+                val.goals_conceded + team_2_score,
+            )
+                .into();
+        } else {
+            scores.insert(team_1_name, (team_1_score, team_2_score).into());
+        };
+
+        if let Some(val) = scores.get_mut(&team_2_name) {
+            *val = (
+                val.goals_scored + team_2_score,
+                val.goals_conceded + team_1_score,
+            )
+                .into();
+        } else {
+            scores.insert(team_2_name, (team_2_score, team_1_score).into());
+        };
     }
     scores
 }
