@@ -72,6 +72,10 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
     scores
 }
 
+fn main() {
+    // You can optionally experiment here.
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

@@ -17,6 +17,10 @@ struct ColorTupleStruct(i32, i32, i32);
 #[derive(Debug)]
 struct UnitLikeStruct;
 
+fn main() {
+    // You can optionally experiment here.
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

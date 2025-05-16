@@ -54,6 +54,9 @@ impl State {
         }
     }
 }
+fn main() {
+    // You can optionally experiment here.
+}
 
 #[cfg(test)]
 mod tests {
@@ -75,7 +78,7 @@ mod tests {
         assert_eq!(state.color, (255, 0, 255));
         assert_eq!(state.position.x, 10);
         assert_eq!(state.position.y, 15);
-        assert_eq!(state.quit, true);
         assert_eq!(state.message, "Hello world!");
+        assert!(state.quit);
     }
 }
