@@ -19,7 +19,7 @@ pub fn factorial(n: u64) -> u64 {
         n * factorial(n - 1)
     }
 }
-
+fn main() {}
 #[cfg(test)]
 mod tests {
     use super::*;

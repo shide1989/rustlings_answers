@@ -19,6 +19,7 @@ impl AppendBar for Vec<String> {
         self
     }
 }
+fn main() {}
 
 #[cfg(test)]
 mod tests {

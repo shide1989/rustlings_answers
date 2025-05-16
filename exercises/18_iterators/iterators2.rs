@@ -41,6 +41,8 @@ pub fn capitalize_words_string(words: &[&str]) -> String {
         .join("")
 }
 
+fn main() {}
+
 #[cfg(test)]
 mod tests {
     use super::*;

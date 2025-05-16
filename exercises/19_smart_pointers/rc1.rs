@@ -32,6 +32,7 @@ impl Planet {
         println!("Hi from {:?}!", self)
     }
 }
+fn main() {}
 
 #[test]
 fn main() {

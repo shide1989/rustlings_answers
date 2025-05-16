@@ -16,6 +16,8 @@ pub fn generate_nametag_text(name: String) -> Result<String, String> {
     }
 }
 
+fn main() {}
+
 #[cfg(test)]
 mod tests {
     use super::*;

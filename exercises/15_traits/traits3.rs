@@ -24,7 +24,7 @@ struct OtherSoftware {
 
 impl Licensed for SomeSoftware {} // Don't edit this line
 impl Licensed for OtherSoftware {} // Don't edit this line
-
+fn main() {}
 #[cfg(test)]
 mod tests {
     use super::*;

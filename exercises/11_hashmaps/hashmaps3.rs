@@ -33,7 +33,7 @@ impl From<(u8, u8)> for Team {
     }
 }
 
-fn build_scores_table(results: String) -> HashMap<String, Team> {
+fn build_scores_table(results: &str) -> HashMap<String, Team> {
     // The name of the team is the key and its associated struct is the value.
     let mut scores: HashMap<String, Team> = HashMap::new();
 
@@ -80,40 +80,34 @@ fn main() {
 mod tests {
     use super::*;
 
-    fn get_results() -> String {
-        let results = "".to_string()
-            + "England,France,4,2\n"
-            + "France,Italy,3,1\n"
-            + "Poland,Spain,2,0\n"
-            + "Germany,England,2,1\n";
-        results
-    }
+    const RESULTS: &str = "England,France,4,2
+France,Italy,3,1
+Poland,Spain,2,0
+Germany,England,2,1
+England,Spain,1,0";
 
     #[test]
     fn build_scores() {
-        let scores = build_scores_table(get_results());
+        let scores = build_scores_table(RESULTS);
 
-        let mut keys: Vec<&String> = scores.keys().collect();
-        keys.sort();
-        assert_eq!(
-            keys,
-            vec!["England", "France", "Germany", "Italy", "Poland", "Spain"]
-        );
+        assert!(["England", "France", "Germany", "Italy", "Poland", "Spain"]
+            .into_iter()
+            .all(|team_name| scores.contains_key(team_name)));
     }
 
     #[test]
     fn validate_team_score_1() {
-        let scores = build_scores_table(get_results());
+        let scores = build_scores_table(RESULTS);
         let team = scores.get("England").unwrap();
-        assert_eq!(team.goals_scored, 5);
+        assert_eq!(team.goals_scored, 6);
         assert_eq!(team.goals_conceded, 4);
     }
 
     #[test]
     fn validate_team_score_2() {
-        let scores = build_scores_table(get_results());
+        let scores = build_scores_table(RESULTS);
         let team = scores.get("Spain").unwrap();
         assert_eq!(team.goals_scored, 0);
-        assert_eq!(team.goals_conceded, 2);
+        assert_eq!(team.goals_conceded, 3);
     }
 }

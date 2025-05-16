@@ -17,6 +17,7 @@ fn maybe_icecream(time_of_day: u16) -> Option<u16> {
         _ => Some(0),
     }
 }
+fn main() {}
 
 #[cfg(test)]
 mod tests {

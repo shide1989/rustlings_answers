@@ -24,6 +24,7 @@ impl Licensed for OtherSoftware {}
 fn compare_license_types(software: impl Licensed, software_two: impl Licensed) -> bool {
     software.licensing_info() == software_two.licensing_info()
 }
+fn main() {}
 
 #[cfg(test)]
 mod tests {

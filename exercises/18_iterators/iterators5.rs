@@ -59,6 +59,7 @@ fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Pr
             .fold(0, |acc, v| if v.1 == &value { acc + 1 } else { acc })
     })
 }
+fn main() {}
 
 #[cfg(test)]
 mod tests {

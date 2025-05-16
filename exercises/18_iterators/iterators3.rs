@@ -51,7 +51,7 @@ fn list_of_results() -> Vec<Result<i32, DivisionError>> {
     let division_results = numbers.into_iter().map(|n| divide(n, 27));
     division_results.collect()
 }
-
+fn main() {}
 #[cfg(test)]
 mod tests {
     use super::*;

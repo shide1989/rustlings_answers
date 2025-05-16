@@ -2,6 +2,7 @@
 //
 // Execute `rustlings hint options2` or use the `hint` watch subcommand for a
 // hint.
+fn main() {}
 
 #[cfg(test)]
 mod tests {
@@ -33,7 +34,7 @@ mod tests {
         while let Some(Some(integer)) = optional_integers.pop() {
             assert_eq!(integer, cursor);
             cursor -= 1;
-        };
+        }
 
         assert_eq!(cursor, 0);
     }

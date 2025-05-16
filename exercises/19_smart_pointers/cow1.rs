@@ -25,6 +25,8 @@ fn abs_all<'a, 'b>(input: &'a mut Cow<'b, [i32]>) -> &'a mut Cow<'b, [i32]> {
     input
 }
 
+fn main() {}
+
 #[cfg(test)]
 mod tests {
     use super::*;
