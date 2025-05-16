@@ -1,37 +1,37 @@
-// TODO: Fix the compiler error on this function.
-fn picky_eater(food: &str) -> &str {
-    if food == "strawberry" {
-        "Yummy!"
+// if2.rs
+//
+// Step 1: Make me compile!
+// Step 2: Get the bar_for_fuzz and default_to_baz tests passing!
+//
+// Execute `rustlings hint if2` or use the `hint` watch subcommand for a hint.
+
+pub fn foo_if_fizz(fizzish: &str) -> &str {
+    if fizzish == "fizz" {
+        "foo"
+    } else if fizzish == "fuzz" {
+        "bar"
     } else {
-        1
+        "baz"
     }
 }
 
-fn main() {
-    // You can optionally experiment here.
-}
-
-// TODO: Read the tests to understand the desired behavior.
-// Make all tests pass without changing them.
+// No test changes needed!
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn yummy_food() {
-        // This means that calling `picky_eater` with the argument "food" should return "Yummy!".
-        assert_eq!(picky_eater("strawberry"), "Yummy!");
+    fn foo_for_fizz() {
+        assert_eq!(foo_if_fizz("fizz"), "foo")
     }
 
     #[test]
-    fn neutral_food() {
-        assert_eq!(picky_eater("potato"), "I guess I can eat that.");
+    fn bar_for_fuzz() {
+        assert_eq!(foo_if_fizz("fuzz"), "bar")
     }
 
     #[test]
-    fn default_disliked_food() {
-        assert_eq!(picky_eater("broccoli"), "No thanks!");
-        assert_eq!(picky_eater("gummy bears"), "No thanks!");
-        assert_eq!(picky_eater("literally anything"), "No thanks!");
+    fn default_to_baz() {
+        assert_eq!(foo_if_fizz("literally anything"), "baz")
     }
 }
